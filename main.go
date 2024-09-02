@@ -1,7 +1,16 @@
-package main 
+package main
 
-import "fmt"
+import (
+	"log"
+	"net/http"
+)
 
 func main() {
-    fmt.Println("learn-web-servers")
+	mux := http.NewServeMux()
+    
+    server := http.Server {
+        Addr: ":8080",
+        Handler: mux,
+    }
+    log.Fatal(server.ListenAndServe())
 }
